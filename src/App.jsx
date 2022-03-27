@@ -1,11 +1,18 @@
-import AppRouter from './router/AppRouter'
+/* eslint-disable react/react-in-jsx-scope */
+/* eslint-disable react/prop-types */
+import AppRouter from "./router/AppRouter";
+import { AuthProvider } from "./states/auth/AuthContext";
+
+const Providers = ({ children }) => {
+  return <AuthProvider>{children}</AuthProvider>;
+};
 
 function App() {
   return (
-    <div>
+    <Providers>
       <AppRouter />
-    </div>
-  )
+    </Providers>
+  );
 }
 
-export default App
+export default App;

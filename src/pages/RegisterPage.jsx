@@ -24,7 +24,7 @@ const RegisterPage = () => {
 
         <div className="row mb-3">
           <div className="col text-right">
-            <Link to={'/login'} className="txt1">
+            <Link to={'/auth/login'} className="txt1">
                 Ya tienes cuenta?
             </Link>
           </div>
