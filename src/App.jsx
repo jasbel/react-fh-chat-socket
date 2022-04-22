@@ -2,13 +2,16 @@
 /* eslint-disable react/prop-types */
 import AppRouter from './router/AppRouter'
 import { AuthProvider } from './states/auth/AuthContext'
+import { ChatProvider } from './states/chat/ChatContext'
 import { SocketProvider } from './states/socket/SocketContext'
 
 const Providers = ({ children }) => {
   return (
-    <AuthProvider>
-      <SocketProvider>{children}</SocketProvider>
-    </AuthProvider>
+    <ChatProvider>
+      <AuthProvider>
+        <SocketProvider>{children}</SocketProvider>
+      </AuthProvider>
+    </ChatProvider>
   )
 }
 
