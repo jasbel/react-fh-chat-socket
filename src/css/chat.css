@@ -1,4 +1,5 @@
-html, body {
+html,
+body {
   height: 100vh;
   margin: 0;
 }
@@ -38,7 +39,6 @@ img {
   padding: 5px;
 }
 
-
 .headind_srch {
   padding: 10px 10px 10px 10px;
   overflow: hidden;
@@ -46,7 +46,7 @@ img {
 }
 
 .recent_heading h4 {
-  color: #7674FE;
+  color: #7674fe;
   font-size: 18px;
   margin: auto;
 }
@@ -85,7 +85,7 @@ img {
 .chat_ib p {
   font-size: 14px;
   color: #989898;
-  margin: auto
+  margin: auto;
 }
 
 .chat_img {
@@ -117,7 +117,7 @@ img {
 }
 
 .active_chat {
-  background: #ebebeb;
+  background: #ccaeae;
 }
 
 .incoming_msg_img {
@@ -161,7 +161,7 @@ img {
 }
 
 .sent_msg p {
-  background: #7674FE none repeat scroll 0 0;
+  background: #7674fe none repeat scroll 0 0;
   border-radius: 3px;
   font-size: 14px;
   margin: 0;
@@ -195,7 +195,7 @@ img {
 }
 
 .msg_send_btn {
-  background: #7674FE none repeat scroll 0 0;
+  background: #7674fe none repeat scroll 0 0;
   border: medium none;
   border-radius: 5px;
   color: #fff;
@@ -204,7 +204,6 @@ img {
   height: 33px;
   width: 70px;
 }
-
 
 .msg_history {
   height: 90%;
@@ -215,7 +214,8 @@ img {
   height: 150px;
 }
 
-.search-bar:focus, .write_msg:focus {
+.search-bar:focus,
+.write_msg:focus {
   outline: none;
 }
 
