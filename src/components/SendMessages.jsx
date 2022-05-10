@@ -1,7 +1,13 @@
-import React, { useState } from 'react'
+import React, { useState, useContext } from 'react'
+import AuthContext from '../states/auth/AuthContext'
+import { ChatContext } from '../states/chat/ChatContext'
+import { SocketContext } from '../states/socket/SocketContext'
 
 const SendMessages = () => {
   const [message, setMessage] = useState('')
+  const { socket } = useContext(SocketContext)
+  const { auth } = useContext(AuthContext)
+  const { chatState } = useContext(ChatContext)
 
   const onChange = ({ target }) => {
     setMessage(target.value)
@@ -17,6 +23,14 @@ const SendMessages = () => {
     //   to: // uid user receiver
     //   msg: // message
     // }
+    const dataEmit = {
+      from: auth.uid,
+      to: chatState.chatActive,
+      msg: message,
+    }
+
+    console.log({ dataEmit })
+    socket.emit('message-personal', dataEmit)
 
     // TODO: hacer dispathc del menssage
     //

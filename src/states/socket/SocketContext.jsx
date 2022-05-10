@@ -27,7 +27,15 @@ export const SocketProvider = ({ children }) => {
       // console.log({ user })
       dispatch({ type: types.usersLoad, payload: users })
     })
-  }, [socket])
+  }, [socket, dispatch])
+
+  useEffect(() => {
+    socket?.on('message-personal', (msg) => {
+      console.log({ msg })
+      dispatch({ type: types.newMsg, payload: msg })
+      // TODO: dispathc action, and move scroll
+    })
+  }, [socket, dispatch])
 
   return (
     <SocketContext.Provider value={{ socket, online }}>

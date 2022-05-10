@@ -1,18 +1,27 @@
-import React from "react";
-import IncomingMessage from "./IncomingMessage";
-import OutgoinMessages from "./OutgoinMessages";
-import SendMessages from "./SendMessages";
+import React, { useContext } from 'react'
+import AuthContext from '../states/auth/AuthContext'
+import { ChatContext } from '../states/chat/ChatContext'
+import IncomingMessage from './IncomingMessage'
+import OutgoinMessages from './OutgoinMessages'
+import SendMessages from './SendMessages'
 
 const Messages = () => {
-  const msgs = [1, 2, 3,4,5,6,7];
+  const { chatState } = useContext(ChatContext)
+  const { auth } = useContext(AuthContext)
   return (
     <div className="mesgs">
       <div className="msg_history">
-        {msgs.map((msg, index) => ((msg % 2) ? <IncomingMessage key={index} /> : <OutgoinMessages  key={index}/>))}
+        {chatState.messages.map((msg) =>
+          msg.to === auth.uid ? (
+            <IncomingMessage key={msg._id} msg={msg} />
+          ) : (
+            <OutgoinMessages key={msg._id} msg={msg} />
+          )
+        )}
       </div>
       <SendMessages />
     </div>
-  );
-};
+  )
+}
 
-export default Messages;
+export default Messages
