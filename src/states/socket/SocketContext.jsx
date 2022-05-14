@@ -1,6 +1,7 @@
 import React, { useContext, useEffect } from 'react'
 import { createContext } from 'react'
 import { urlFront } from '../../helpers/config'
+import { scrollToBottomAnimated } from '../../helpers/scrollToBottom'
 import { useSocket } from '../../hooks/useSocket'
 import { types } from '../../types/types'
 import AuthContext from '../auth/AuthContext'
@@ -31,9 +32,9 @@ export const SocketProvider = ({ children }) => {
 
   useEffect(() => {
     socket?.on('message-personal', (msg) => {
-      console.log({ msg })
       dispatch({ type: types.newMsg, payload: msg })
-      // TODO: dispathc action, and move scroll
+
+      scrollToBottomAnimated('messages')
     })
   }, [socket, dispatch])
 

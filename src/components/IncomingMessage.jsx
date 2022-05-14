@@ -2,7 +2,6 @@ import React from 'react'
 import { getDateChat } from '../helpers/times'
 
 const IncomingMessage = ({ msg }) => {
-  console.log({ msg2: msg })
   return (
     <div className="incoming_msg">
       <div className="incoming_msg_img">

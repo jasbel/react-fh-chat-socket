@@ -2,7 +2,6 @@ import React from 'react'
 import { getDateChat } from '../helpers/times'
 
 const OutgoinMessages = ({ msg }) => {
-  console.log({ msg3: msg })
   return (
     <div className="outgoing_msg">
       <div className="sent_msg">

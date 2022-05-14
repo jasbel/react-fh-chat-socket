@@ -47,8 +47,6 @@ export const AuthProvider = ({ children }) => {
       localStorage.setItem('token', resp.token)
       const { user } = resp
 
-      console.log({ user })
-
       setAuth({
         uid: user.uid,
         checking: false,

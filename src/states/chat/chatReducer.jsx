@@ -18,6 +18,12 @@ export const chatReducer = (state, action) => {
       }
       return { ...state }
 
+    case types.uploadMessages:
+      return { ...state, messages: [...action.payload] }
+
+    case types.closeSession:
+      return { uid: '', chatActive: null, users: [], messages: [] }
+
     default:
       return state
   }
